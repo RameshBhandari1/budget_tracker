@@ -1,0 +1,64 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Welcome Back !</h2>
+      </div>
+      <div class="col-sm-6">
+        <button class="btn float-end btn-outline-success" (click)="addIncomeExpenses()">
+          Add New Record
+        </button>
+      </div>
+    </div>
+    <hr/>
+    <div class="row ms-1">
+      <div class="col-xl-4 col-sm-6 col-12">
+        <div class="card mb-3">
+          <div class="row">
+            <div class="col-md-4 bg-success">
+              <img src="./assets/images/income.png" class="card-img" alt="income">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body float-end text-success">
+                <h3 class="card-title">Total Incomes</h3>
+                <p class="card-text float-end">{{(totalDashboardCount.totalIncomes || 0 )| currencyFormat}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-sm-6 col-12">
+        <div class="card mb-3">
+          <div class="row">
+            <div class="col-md-4 bg-danger">
+              <img src="./assets/images/expenses.png" class="card-img" alt="expenses">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body float-end text-danger ">
+                <h3 class="card-title">Total Expenses</h3>
+                <p class="card-text float-end">{{(totalDashboardCount.totalExpenses || 0) | currencyFormat}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-sm-6 col-12">
+        <div class="card mb-3">
+          <div class="row">
+            <div class="col-md-4 bg-success">
+              <img src="./assets/images/balance.png" class="card-img" alt="balance">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body float-end text-success">
+                <h3 class="card-title">Balance</h3>
+                <p class="card-text float-end" [ngClass]="totalDashboardCount.mainBalance >= 0 ? '' : 'text-danger'">{{(totalDashboardCount.mainBalance || 0) | currencyFormat}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <router-outlet></router-outlet>
+  </div>
+</div>

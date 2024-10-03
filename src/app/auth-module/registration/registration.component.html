@@ -1,0 +1,52 @@
+<h3 class="fs-5 text-center card-title mb-4">User Registration Form</h3>
+<hr/>
+<form class="needs-validation" autocomplete="off" [formGroup]="signupForm">
+  <div class="mb-3">
+    <label class="mb-2 text-muted" for="fullName">Full Name<span class="text-danger">*</span></label>
+    <input id="fullName" type="text" class="form-control" placeholder="Your Full Name" formControlName="fullName"
+           name="fullName" required autofocus
+    />
+    <span *ngIf="submitted || form['fullName'].touched || form['fullName'].dirty && form['fullName'].invalid"
+          class="info-msg text-danger">
+                  <small
+                    *ngIf="form['fullName'].errors && form['fullName'].errors?.['required']">Full name is the required field.</small>
+                </span>
+  </div>
+  <div class="mb-3">
+    <label class="mb-2 text-muted" for="email">Email<span class="text-danger">*</span></label>
+    <input id="email" type="text" class="form-control" placeholder="Your Email" formControlName="email" name="email"
+           required autofocus
+    />
+    <span *ngIf="submitted || form['email'].touched || form['email'].dirty && form['email'].invalid"
+          class="info-msg text-danger">
+                  <small
+                    *ngIf="form['email'].errors && form['email'].errors?.['required']">Email is the required field.</small>
+      <small
+        *ngIf="form['email'].errors && form['email'].errors?.['email']">Email format invalid.</small>
+                </span>
+  </div>
+
+  <div class="mb-3">
+    <label class="text-muted mb-2" for="password">Password<span class="text-danger">*</span></label>
+    <input id="password" [type]="showPassword ? 'text' : 'password'" formControlName="password" class="form-control" name="password" required
+           placeholder="Password"/>
+    <i (click)="onPasswordToggle()" [ngClass]="showPassword ? 'toggle-password fa fa-eye fa-eye-slash' : 'toggle-password fa fa-fw fa-eye-slash'"></i>
+    <span *ngIf="submitted || form['password'].touched || form['password'].dirty && form['password'].invalid"
+          class="info-msg text-danger">
+                  <small
+                    *ngIf="form['password'].errors && form['password'].errors?.['required']">Password is the required field.</small>
+                </span>
+  </div>
+
+  <div class="mt-4">
+    <button type="submit" (click)="onUserRegister()" [disabled]="signupForm.invalid"
+            class="btn w-100 btn-primary ms-auto">
+      Sign Up
+    </button>
+
+    <div class="mt-3 text-center">
+      Already a user? <a class="text-decoration-none mouse-cursor text-primary" (click)="routeToLogin()">Sign in
+      here</a>
+    </div>
+  </div>
+</form>

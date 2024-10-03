@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-sm-12 mx-2">
+    <i class="bi bi-arrow-bar-left"></i>
+    <h2>Add Incomes/Expenses</h2>
+  </div>
+</div>
+<hr/>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body text-success">
+        <form [formGroup]="incomeExpensesForm">
+          <div class="row">
+            <div class="col-sm-4 my-3">
+              <label class="col-form-label-sm float-start form-label fw-bold">Title <span class="text-danger">*</span></label>
+              <input width="90%" type="text" class="form-control" formControlName="title" name="title"
+                     placeholder="Title">
+              <span *ngIf="submitted || form['title'].touched || form['title'].dirty && form['title'].invalid"
+                    class="info-msg text-danger">
+                  <small
+                    *ngIf="form['title'].errors && form['title'].errors?.['required']">Title is the required field.</small>
+                </span>
+            </div>
+            <div class="col-sm-4 my-3">
+              <label class="col-form-label-sm float-start form-label fw-bold">Amount <span class="text-danger">*</span></label>
+              <input width="90%" type="text" class="form-control" formControlName="amount" name="amount"
+                     placeholder="Amount" appNumberOnly>
+              <span *ngIf="submitted || form['amount'].touched || form['amount'].dirty && form['amount'].invalid"
+                    class="info-msg text-danger">
+                  <small
+                    *ngIf="form['amount'].errors && form['amount'].errors?.['required']">Amount is the required field.</small>
+                </span>
+            </div>
+            <div class="col-md-4 my-3">
+              <label class="col-form-label-sm float-start form-label fw-bold">Income Type <span class="text-danger">*</span></label>
+              <select class="form-control" formControlName="incomeType" name="incomeType">
+                <option value="null" hidden>Select Income Type</option>
+                <option *ngFor="let income of incomeType" [value]="income?.key">{{ income?.value }}</option>
+              </select>
+              <span *ngIf="submitted || form['incomeType'].touched || form['incomeType'].dirty && form['incomeType'].invalid"
+                    class="info-msg text-danger">
+                  <small
+                    *ngIf="form['incomeType'].errors && form['incomeType'].errors?.['required']">Income Type is the required field.</small>
+                </span>
+            </div>
+            <div class="col-md-4 my-3">
+              <label class="col-form-label-sm float-start form-label fw-bold">Recurring Type <span class="text-danger">*</span></label>
+              <select class="form-control" formControlName="recurringType" name="recurringType">
+                <option value="null" hidden>Select Recurring Type</option>
+                <option *ngFor="let recurring of recurringType" [value]="recurring?.key">{{ recurring?.value }}</option>
+              </select>
+              <span *ngIf="submitted || form['recurringType'].touched || form['recurringType'].dirty && form['recurringType'].invalid"
+                    class="info-msg text-danger">
+                  <small
+                    *ngIf="form['recurringType'].errors && form['recurringType'].errors?.['required']">Recurring Type is the required field.</small>
+                </span>
+            </div>
+            <div class="col-sm-4 my-3">
+              <label class="col-form-label-sm float-start form-label fw-bold">Category <span class="text-danger">*</span></label>
+              <input width="90%" type="text" class="form-control" formControlName="category" name="category"
+                     placeholder="Category">
+              <span *ngIf="submitted || form['category'].touched || form['category'].dirty && form['category'].invalid"
+                    class="info-msg text-danger">
+                  <small
+                    *ngIf="form['category'].errors && form['category'].errors?.['required']">Category is the required field.</small>
+                </span>
+            </div>
+            <div class="col-sm-12 my-3">
+              <label class="col-form-label-sm float-start form-label fw-bold">Description</label>
+              <textarea rows="3" type="text" class="form-control" formControlName="description" name="description"
+                        placeholder="Description"></textarea>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-sm-6">
+              <button class="btn btn-outline-danger" (click)="onBack()" type="button">Back</button>
+            </div>
+            <div class="col-sm-6">
+              <button class="btn btn-outline-success float-end" (click)="saveIncomeExpenses()" type="submit">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

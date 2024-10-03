@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+body {
+  background: #eee;
+}
+
+.content {
+  min-height: 100vh;
+  width: 100%;
+  background: #b7c9c9;
+}
+
+.form-group {
+  padding: 10px;
+}
+
+.mouse-cursor {
+  cursor: pointer;
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

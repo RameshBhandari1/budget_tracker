@@ -1,0 +1,34 @@
+<!-- Vertically centered modal -->
+
+<div class="modal-content">
+  <div class="modal-header">
+    <h2 class="modal-title mb-0" id="staticBackdropLabel">Income/Expense Details</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-4 mb-2">
+        <label><strong>Title </strong>: {{ data.title || 'N/A'}}</label>
+      </div>
+      <div class="col-md-4 mb-2">
+        <label><strong>Income Type </strong>: {{ data.incomeType  || 'N/A' }}</label>
+      </div>
+      <div class="col-md-4 mb-2">
+        <label><strong>Recurring Type </strong>: {{ data.recurringType  || 'N/A' }}</label>
+      </div>
+      <div class="col-md-4 mb-2">
+        <label><strong>Amount </strong>:  {{ (data.amount || 0 | currencyFormat)  || 'N/A' }}</label>
+      </div>
+      <div class="col-md-4 mb-2">
+        <label><strong>Date </strong>: {{ (data.createdDate | date)  || 'N/A' }}</label>
+      </div>
+      <div class="col-md-4 mb-2">
+        <label><strong>Category </strong>: {{ data.category  || 'N/A' }}</label>
+      </div>
+      <div class="col-md-12 mb-2">
+        <label><strong>Description </strong>: {{ data?.description  || 'N/A' }}</label>
+      </div>
+    </div>
+  </div>
+</div>
+

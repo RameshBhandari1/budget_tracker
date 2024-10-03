@@ -1,0 +1,42 @@
+<h3 class="fs-5 text-center card-title mb-4">User Login Form</h3>
+<hr/>
+<form class="needs-validation" autocomplete="off" [formGroup]="loginForm">
+  <div class="mb-3">
+    <label class="mb-2 text-muted" for="email">Email<span class="text-danger">*</span></label>
+    <input id="email" type="text" class="form-control" placeholder="Your Email"
+           formControlName="email" name="email" required autofocus
+    />
+    <span
+      *ngIf="submitted || form['email'].touched || form['email'].dirty && form['email'].invalid"
+      class="info-msg text-danger">
+                  <small
+                    *ngIf="form['email'].errors && form['email'].errors?.['required']">Email is the required field.</small>
+                </span>
+  </div>
+
+  <div class="mb-3">
+    <label class="text-muted mb-2" for="password">Password<span class="text-danger">*</span></label>
+    <input id="password" [type]="showPassword ? 'text' : 'password'" formControlName="password" class="form-control" name="password"
+           required
+           placeholder="Password"/>
+    <i (click)="onPasswordToggle()" [ngClass]="showPassword ? 'toggle-password fa fa-eye fa-eye-slash' : 'toggle-password fa fa-fw fa-eye-slash'"></i>
+    <span
+      *ngIf="submitted || form['password'].touched || form['password'].dirty && form['password'].invalid"
+      class="info-msg text-danger">
+                  <small
+                    *ngIf="form['password'].errors && form['password'].errors?.['required']">Password is the required field.</small>
+                </span>
+  </div>
+
+  <div class="mt-4">
+    <button type="submit" (click)="onUserLogin()" [disabled]="loginForm.invalid"
+            class="btn w-100 btn-primary ms-auto">
+      Sign In
+    </button>
+
+    <div class="mt-3 text-center">
+      Are you a new user? <a class="text-decoration-none mouse-cursor text-primary" (click)="routeToSignup()">Sign up
+      here</a>
+    </div>
+  </div>
+</form>

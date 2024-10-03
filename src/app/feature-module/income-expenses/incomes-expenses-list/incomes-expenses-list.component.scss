@@ -1,0 +1,58 @@
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+::ng-deep.ng-select .ng-has-value .ng-placeholder {
+  display: none;
+}
+
+::ng-deep.ng-dropdown-panel {
+  background: white;
+  padding: 1rem;
+  border-radius:5px;
+}
+
+::ng-deep.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background: white !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 5px !important;
+}
+::ng-deep.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label, .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label--float-above {
+  color: black !important;
+}
+::ng-deep.mat-datepicker-toggle {
+  color: black !important;
+}
+
+::ng-deep.mat-date-range-input-separator {
+  color: black !important;
+}
+
+::ng-deep.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: black !important;
+}
+
+::ng-deep.mat-date-range-input {
+  width: 85% !important;
+}
+
+::ng-deep.mat-icon {
+  position: relative !important;
+  float: right !important;
+  cursor: pointer !important;
+  color: rgba(0, 0, 0, 0.54) !important;
+  margin-top: -2rem !important;
+}
